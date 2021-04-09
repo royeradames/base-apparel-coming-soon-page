@@ -23,7 +23,7 @@ function App() {
   } = useForm<Inputs>();
 
   const onSubmit = (data: any) => {
-    console.log(data);
+    console.log({ data });
   };
 
   console.log(watch("email")); // watch input value by passing the name of it
@@ -48,16 +48,19 @@ function App() {
         {/* include validation with required or other standerd HTML validation rules */}
         <input
           {...register("email", { required: true })}
-          type="email"
+          // type="email"
           placeholder="Email Address"
           className="form__email"
         />
 
         {/* errors will return when field validation fails */}
-        {errors && <img src={iconError} alt="Error icon" />}
-        {errors && <img src={iconError} alt="Error icon" /> && (
+        {errors.email && (
+          <img src={iconError} alt="Error icon" className="form__error-icon" />
+        )}
+        {errors.email && <img src={iconError} alt="Error icon" /> && (
           <p className="form__error">Please Provide a valid email</p>
         )}
+        {console.log({ errors })}
 
         <input type="submit" className="form__submit" value="" />
       </form>
