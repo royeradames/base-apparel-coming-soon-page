@@ -48,7 +48,8 @@
 }
 .form{
     grid-area: form;
-
+    display: grid;
+    grid-template-columns: 1fr 2rem 6.2rem;
     &__email{
         border-radius: 3rem;
         width: 100%;
@@ -56,5 +57,31 @@
     	border: var(--color-red-200) .1rem solid;
         color: var(--color-red-200);
         padding-left: 2rem;
+
+        // layout
+        grid-column: 1/-1;
+        grid-row: 1;
+    }
+    &__error{
+        grid-column: 1 / -1;
+        text-align: left;
+        margin: .5rem 0 0 2rem;
+        &-icon{
+            // layout
+            grid-column: 2;
+            grid-row: 1;
+            align-self: center;
+        }
+    }
+    &__submit{
+        cursor: pointer;
+        background:  url("../images/icon-arrow.svg") no-repeat center center, var(--gradient-red) ;
+
+        border-radius: 2rem;
+        border: none;
+        // layout
+        grid-column: 3;
+        grid-row:1;
+
     }
 }
