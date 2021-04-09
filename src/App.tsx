@@ -7,6 +7,8 @@ import iconError from "./images/icon-error.svg";
 import iconArrow from "./images/icon-arrow.svg";
 import logo from "./images/logo.svg";
 import bgDesktopPattern from "./images/bg-pattern-desktop.svg";
+import heroMobile from "./images/hero-mobile.jpg";
+import heroDesktop from "./images/hero-desktop.jpg";
 
 type Inputs = {
   email: string;
@@ -28,9 +30,13 @@ function App() {
 
   return (
     <main className="main-container">
-      <img src={logo} alt="Base Apparel" />
+      <img src={logo} alt="Base Apparel logo" className="logo" />
+      <picture className="picture">
+        <source media="(min-width:1440px)" srcSet={heroDesktop} />
+        <img src={heroMobile} alt="hero mobile" />
+      </picture>
       <h1 className="title">
-        We're <span className="tittle--highlight">coming soon</span>
+        We're <span className="title--highlight">coming soon</span>
       </h1>
       <p className="message">
         Hello fellow shoppers! We're currently building our new fashion store.
@@ -38,12 +44,13 @@ function App() {
         launch deals.
       </p>
       {/* handleSubmit will validate your inputs before invoking onSubmit */}
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
         {/* include validation with required or other standerd HTML validation rules */}
         <input
           {...register("email", { required: true })}
           type="email"
           placeholder="Email Address"
+          className="form__email"
         />
 
         {/* errors will return when field validation fails */}
