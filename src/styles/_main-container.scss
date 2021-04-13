@@ -1,13 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+$desktop-view: 1440px;
+$desktop-view: 915px;
+
 .main-container{
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.6rem;
     color: var(--color-red-200);
     text-align: center;
+    
+    // for  overley large screens
+    // max-width: 1440rem;
+    justify-content: center;
 
     // layout
     margin: 3rem 0 8rem 0rem;
     display: grid;
+    row-gap: 3rem;
     grid-template-columns: minmax(0, 3rem) 1fr minmax(0, 3rem);
     grid-template-areas: 
         ". logo ."
@@ -16,12 +25,31 @@
         ". message ."
         ". form ."
     ;
-    row-gap: 3rem;
+    @media(min-width: $desktop-view){
+        text-align: left;
+        margin: 0;
+
+        // layout
+        grid-template-columns: minmax(0, 3rem) 1fr max-content;
+        grid-template-rows: 1fr min-content 1fr 3fr;
+        grid-template-areas: 
+        ". logo img"
+        ". title img"
+        ". message img"
+        ". form img"
+    ;
+        column-gap: 15rem;
+        row-gap: 0;
+        
+    }
 }
 
 .logo{
     grid-area: logo;
-    width: 40%;
+    width: min(40%, 16rem);
+    @media(min-width: $desktop-view){
+        margin-top: 5rem;
+    }
 }
 .picture{
     grid-area: img;
@@ -35,6 +63,14 @@
     letter-spacing: 1.126rem;
     text-transform: uppercase;
     font-weight: 300;
+    width: min-content;
+
+    // layout
+    justify-self: center;
+    @media(min-width: $desktop-view){
+        justify-self: left;
+        margin: 7rem 0 2rem 0;
+    }
     &--highlight{
         color: var(--color-red-700);
         font-weight: 400;
@@ -45,14 +81,29 @@
 
     margin: 0;
     letter-spacing: -.083rem;
+    max-width: 39ch;
+    justify-self: center;
+    @media(min-width: $desktop-view){
+        line-height: 2.7rem;
+        justify-self: start;
+
+    }
 }
 .form{
     grid-area: form;
     display: grid;
-    grid-template-columns: 1fr 2rem 6.2rem;
+    width: min(100%, 38rem);
+    justify-self: center;
+
+    grid-template-columns: minmax(max-content, 1fr) 2rem 6.2rem;
+    // grid-template-columns: max-content 2rem 6.2rem;
+    @media(min-width: $desktop-view){
+        justify-self: start;
+    }
     &__email{
         border-radius: 3rem;
-        width: 100%;
+        // width: 100%;
+        // max-width: 38rem;
         height: 4.5rem;
     	border: var(--color-red-200) .1rem solid;
         color: var(--color-red-200);
@@ -79,9 +130,12 @@
 
         border-radius: 2rem;
         border: none;
+        max-height: 4.5rem;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.205);
         // layout
         grid-column: 3;
         grid-row:1;
+        
 
     }
 }

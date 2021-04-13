@@ -32,7 +32,7 @@ function App() {
     <main className="main-container">
       <img src={logo} alt="Base Apparel logo" className="logo" />
       <picture className="picture">
-        <source media="(min-width:1440px)" srcSet={heroDesktop} />
+        <source media="(min-width:915px)" srcSet={heroDesktop} />
         <img src={heroMobile} alt="hero mobile" />
       </picture>
       <h1 className="title">
