@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 // import icons
 import iconError from "./images/icon-error.svg";
 import logo from "./images/logo.svg";
-import bgDesktopPattern from "./images/bg-pattern-desktop.svg";
 import heroMobile from "./images/hero-mobile.jpg";
 import heroDesktop from "./images/hero-desktop.jpg";
 
