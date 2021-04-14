@@ -25,6 +25,8 @@ $desktop-view: 915px;
     ;
     @media(min-width: $desktop-view){
         text-align: left;
+
+        background: url("../images/bg-pattern-desktop.svg") left/61% no-repeat;
         
         // layout
         margin: 0 auto;
