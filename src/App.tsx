@@ -1,6 +1,8 @@
 import React from "react";
 import "./styles/main.scss";
 import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 // import icons
 import iconError from "./images/icon-error.svg";
@@ -12,13 +14,17 @@ type Inputs = {
   email: string;
 };
 
+// validation
+const schema = yup.object().shape({
+  email: yup.string().email(),
+});
 function App() {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({ resolver: yupResolver(schema) });
 
   const onSubmit = (data: any) => {
     console.log({ data });
