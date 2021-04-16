@@ -98,7 +98,7 @@ $desktop-view: 915px;
     width: min(100%, 38rem);
     justify-self: center;
 
-    grid-template-columns: minmax(max-content, 1fr) 2rem 6.2rem;
+    grid-template-columns: minmax(max-content, 1fr) 4rem 6.2rem;
     grid-template-rows: min-content;
     @media(min-width: $desktop-view){
         justify-self: start;
@@ -123,6 +123,7 @@ $desktop-view: 915px;
             grid-column: 2;
             grid-row: 1;
             align-self: center;
+            justify-self: center;
         }
     }
     &__submit{
