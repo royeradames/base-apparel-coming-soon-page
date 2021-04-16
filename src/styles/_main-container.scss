@@ -3,6 +3,11 @@
 $desktop-view: 1440px;
 $desktop-view: 915px;
 
+#root{
+    @media(min-width: $desktop-view){
+        background: url("../images/bg-pattern-desktop.svg") left/61% no-repeat;
+    }
+}
 .main-container{
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.6rem;
@@ -26,8 +31,6 @@ $desktop-view: 915px;
     @media(min-width: $desktop-view){
         text-align: left;
 
-        background: url("../images/bg-pattern-desktop.svg") left/61% no-repeat;
-        
         // layout
         margin: 0 auto;
         grid-template-columns: minmax(0, 3rem) 1fr max-content;
