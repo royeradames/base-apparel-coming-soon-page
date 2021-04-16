@@ -99,7 +99,7 @@ $desktop-view: 915px;
     justify-self: center;
 
     grid-template-columns: minmax(max-content, 1fr) 2rem 6.2rem;
-    // grid-template-columns: max-content 2rem 6.2rem;
+    grid-template-rows: min-content;
     @media(min-width: $desktop-view){
         justify-self: start;
     }
