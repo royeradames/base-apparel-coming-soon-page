@@ -16,7 +16,7 @@ type Inputs = {
 
 // validation
 const schema = yup.object().shape({
-  email: yup.string().email(),
+  email: yup.string().required().email(),
 });
 function App() {
   const {
@@ -51,7 +51,7 @@ function App() {
       <form onSubmit={handleSubmit(onSubmit)} className="form">
         {/* include validation with required or other standerd HTML validation rules */}
         <input
-          {...register("email", { required: true })}
+          {...register("email")}
           // type="email"
           placeholder="Email Address"
           className="form__email"
